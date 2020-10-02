@@ -1,0 +1,9 @@
+<div class="matrix">
+    <div class="row" *ngFor="let row of matrix">
+        <div class="col" *ngFor="let col of row">
+            <div class="card"><img class="fruit-image" src="{{col}}"></div>
+        </div>
+    </div>
+</div>
+
+<button (click)="bet()">Lose!</button>

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "SizzlingHot"
+    }
+  },
+  "defaultProject": "SizzlingHot",
+  "cli": {
+    "analytics": "8edd1600-ff34-46fb-9958-96cb6f94d643"
+  }
 }
