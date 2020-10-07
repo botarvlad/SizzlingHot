@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MachineComponentComponent } from './machine-component/machine-component.component';
 import { SymbolComponent } from './symbol/symbol.component';
+import { BalanceComponent } from './balance/balance.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MachineComponentComponent,
-    SymbolComponent
+    SymbolComponent,
+    BalanceComponent
   ],
   imports: [
     BrowserModule

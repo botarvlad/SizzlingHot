@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+const symbols = [
+  { id: 0, name: 'banana', src: '../../assets/images/Banana.jpeg'},
+  { id: 1, name: 'cireasa', src: '../../assets/images/Cireasa.jpeg'},
+  { id: 2, name: 'pepene', src: '../../assets/images/Pepene.jpeg'},
+  { id: 3, name: 'portocala', src: '../../assets/images/Portocala.jpeg'},
+  { id: 4, name: 'strugure', src: '../../assets/images/Strugure.jpeg'},
+  { id: 5, name: 'septar', src: '../../assets/images/Septar.jpeg'}
+];
+
 @Component({
   selector: 'app-symbol',
   templateUrl: './symbol.component.html',
@@ -7,23 +16,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SymbolComponent implements OnInit {
 
-  symbols = [
-    { id: 0, name: 'banana', src: '../../assets/images/Banana.jpeg'},
-    { id: 1, name: 'lamaie', src: '../../assets/images/Cireasa.jpeg'},
-    { id: 2, name: 'banana', src: '../../assets/images/Pepene.jpeg'},
-    { id: 3, name: 'banana', src: '../../assets/images/Portocala.jpeg'},
-    { id: 4, name: 'banana', src: '../../assets/images/Strugure.jpeg'},
-    { id: 5, name: 'banana', src: '../../assets/images/Septar.jpeg'}
-  ];
+  id = null;
+  name = null;
+  src = null;
 
-  getSymbol() {
-    let randNum = Math.floor(Math.random()*6);
-    return this.symbols[randNum].src;
+  constructor() { 
+    let rand = Math.floor(Math.random()*6);
+    this.id = symbols[rand].id
+    this.name = symbols[rand].name;
+    this.src = symbols[rand].src;
   }
-
-  constructor() { }
-
+  
   ngOnInit(): void {
   }
-
+  
+  getSymbol() {
+    // let randNum = Math.floor(Math.random()*6);
+    return this;
+  }
 }

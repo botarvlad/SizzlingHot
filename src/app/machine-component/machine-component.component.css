@@ -35,3 +35,21 @@ button {
 .fruit-image {
     height: 90px;
 }
+
+.balance-pannel {
+    display: grid;
+    grid-template-columns: 200px 1px;
+    position: relative;
+    margin-top: 200px;
+    margin-left: 250px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+}
+
+.bet-display {
+    margin-top: 50px;
+}
+
+.balance-display {
+    margin-top: 50px;
+}

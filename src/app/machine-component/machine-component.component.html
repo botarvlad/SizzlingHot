@@ -1,9 +1,23 @@
 <div class="matrix">
     <div class="row" *ngFor="let row of matrix">
         <div class="col" *ngFor="let col of row">
-            <div class="card"><img class="fruit-image" src="{{col}}"></div>
+            <div class="card"><img class="fruit-image" src={{col.src}}></div>
         </div>
     </div>
 </div>
 
-<button (click)="bet()">Lose!</button>
+<button (click)="roll()">Roll!</button>
+
+<div class="balance-pannel">
+    <div class="balance-display">
+        <div class="balance-title"><b>Balance</b></div>
+        <label for="balance-label">{{infoStr.balance}}</label>
+    </div>
+    <div class="bet-display">
+        <div class="bet-title"><b>Bet</b></div>
+        <label for="bet-label">{{infoStr.bet}}</label>
+    </div>
+</div>
+
+<button class="change-bet" (click)="infoStr.changeBet()">Change Bet</button>
+    <input type="number">
