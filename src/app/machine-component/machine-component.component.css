@@ -38,7 +38,7 @@ button {
 
 .balance-pannel {
     display: grid;
-    grid-template-columns: 200px 1px;
+    grid-template-columns: 260px 1px;
     position: relative;
     margin-top: 200px;
     margin-left: 250px;
@@ -52,4 +52,10 @@ button {
 
 .balance-display {
     margin-top: 50px;
+}
+
+.bet-input {
+    margin-top: 20px;
+    margin-left: 445px;
+    text-align: center;
 }

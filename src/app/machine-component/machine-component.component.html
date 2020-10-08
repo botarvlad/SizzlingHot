@@ -11,13 +11,20 @@
 <div class="balance-pannel">
     <div class="balance-display">
         <div class="balance-title"><b>Balance</b></div>
-        <label for="balance-label">{{infoStr.balance}}</label>
+        <label for="balance-label">{{infoSide.balance}}</label>
     </div>
     <div class="bet-display">
         <div class="bet-title"><b>Bet</b></div>
-        <label for="bet-label">{{infoStr.bet}}</label>
+        <label for="bet-label">{{infoSide.bet}}</label>
     </div>
 </div>
 
-<button class="change-bet" (click)="infoStr.changeBet()">Change Bet</button>
-    <input type="number">
+<input class="bet-input" [(ngModel)]="infoSide.bet" placeholder="bet"/>
+
+
+
+
+<button (click)="suffTest()"></button>
+
+<!-- <button class="change-bet" (click)="infoStr.changeBet()">Change Bet</button>
+    <input type="number"> -->

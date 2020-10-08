@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MachineComponentComponent } from './machine-component/machine-component.component';
 import { SymbolComponent } from './symbol/symbol.component';
 import { BalanceComponent } from './balance/balance.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BalanceComponent } from './balance/balance.component';
     BalanceComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

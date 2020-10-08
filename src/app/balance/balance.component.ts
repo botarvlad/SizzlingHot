@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-balance',
@@ -7,12 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BalanceComponent implements OnInit {
 
-  balance: number = 1000;
-  bet: number = 10;
+  balance: number;
+  bet: number;
+  income: number = 0;
 
-  constructor(){}
+  constructor(){this.balance = 1000; this.bet = 10;}
   
   ngOnInit(): void {
+  }
+
+  addMoney(money: number) {
+    this.balance += money;
+    this.income = 0;
   }
 
   betMoney() {
