@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "gh-pages -d SizzlingHot",
+    "deploy": "gh-pages -d src",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
