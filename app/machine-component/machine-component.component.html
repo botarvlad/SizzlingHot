@@ -1,0 +1,43 @@
+<div class="matrix">
+    <div class="row" *ngFor="let row of matrix">
+        <div class="col" *ngFor="let col of row">
+            <div class="card"><img class="fruit-image" [src]="col.src"></div>
+        </div>
+    </div>
+</div>
+
+<button class="roll-button" (click)="roll()" 
+        [disabled]="infoSide.win != 0">Roll!
+</button>
+
+<div class="balance-pannel">
+    <div class="balance-display">
+        <div class="balance-title"><b>Balance</b></div>
+        <label for="balance-label">{{infoSide.balance}}</label>
+    </div>
+    <div class="bet-display">
+        <div class="bet-title"><b>Bet</b></div>
+        <label for="bet-label">{{infoSide.bet}}</label>
+    </div>
+    <input class="bet-input" [(ngModel)]="infoSide.bet" placeholder="bet"/>
+</div>
+
+
+<div class="gamble-window">
+    <h1>Gamble Window</h1>
+    
+    <label class="gambling-win-label">{{infoSide.win}}</label>
+
+    <div class="gamble-buttons">
+        <button class="red-button" (click)="gambleRed()" [disabled]="infoSide.win === 0"></button>
+        <button class="black-button" (click)="gambleBlack()" [disabled]="infoSide.win === 0"></button>
+    </div>
+    <div class="buttons">
+        <button class="takeMoney" (click)="takeMoney()" [disabled]="infoSide.win === 0">TakeMoney</button>
+    </div>
+
+    <label class="gamble-row" *ngFor="let gItem of gambleButtons.gamblingRow">{{gItem}}, </label>
+</div>
+
+<!-- <button class="change-bet" (click)="infoStr.changeBet()">Change Bet</button>
+    <input type="number"> -->

@@ -1,0 +1,118 @@
+.matrix {
+    position: absolute;
+    margin: auto;
+    width: 750px;
+    height: 300px;
+    padding: 10px;
+    margin-left: 500px;
+}
+
+.roll-button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    margin-left: 1340px;
+    margin-top: 10px;
+    padding: 40px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 40px 40px 40px 40px 40px;
+    grid-column-gap: 100px;
+}
+
+.card {
+  background-color: transparent;
+  border: 3px solid rgba(240, 230, 145, 0.8);
+  font-size: 30px;
+  text-align: center;
+  padding: auto;
+  height: 94px;
+  width: 140px;
+}
+
+button {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 8px;
+    margin-left: 800px;
+    margin-top: 55px;
+}
+
+.fruit-image {
+    height: 90px;
+}
+
+.balance-pannel {
+    display: grid;
+    grid-template-columns: 260px 1px;
+    position: relative;
+    margin-top: 200px;
+    margin-left: 1350px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+}
+
+.bet-display {
+    margin-top: 50px;
+}
+
+.balance-display {
+    margin-top: 50px;
+}
+
+.bet-input {
+    margin-left: 150px;
+    text-align: center;
+}
+
+
+/* GAMBLING COMPONENT CSS */
+.gambling-window{
+    font-family: 'Courier New', Courier, monospace;
+}
+.gambling-win-label{
+    text-align: center;
+    font-size: 100px;
+    margin-left: 760px;
+}
+.gamble-buttons{
+    margin-left: 600px;
+}
+.red-button{
+  background-color: red;
+  padding: 40px 62px;
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+  margin-left: 100px;
+}
+.red-button:disabled{
+  background-color: grey;
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+  margin-left: 100px;
+}
+.black-button{
+    background-color: black;
+    padding: 40px 62px;
+    text-align: center;
+    font-size: 30px;
+    position: absolute;
+    margin-left: 300px;
+  }
+.black-button:disabled{
+    background-color: gray;
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 30px;
+    position: absolute;
+    margin-left: 300px;
+  }
+  .buttons{
+      margin-left: 400px;
+  }
