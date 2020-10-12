@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { GambleWindowComponent } from './../gamble-window/gamble-window.component';
+import { InfoSide } from './../infoSide';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 
 import { SymbolComponent } from './../symbol/symbol.component';
 import { BalanceComponent } from "./../balance/balance.component";
@@ -16,6 +18,19 @@ export class MachineComponentComponent implements OnInit {
 
   infoSide: BalanceComponent = new BalanceComponent();
   posiblePaylines: PosiblePaylines = new PosiblePaylines();
+  gambleButtons: GambleWindowComponent = new GambleWindowComponent();
+
+  @HostListener('window: keydown', ['$event']) spaceEvent(event: any) {
+    if(event.keyCode === 32 && this.infoSide.income === 0) {
+      this.roll();
+    }else if(event.keyCode === 37 && this.infoSide.income !== 0) {
+      this.gambleRed();
+    }else if(event.keyCode === 39 && this.infoSide.income !== 0) {
+      this.gambleBlack();
+    }else if(event.keyCode === 13 && this.infoSide.income !== 0) {
+      this.takeMoney();
+    }
+  }
 
   //income: number = 0;
 
@@ -36,37 +51,15 @@ export class MachineComponentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  roll(): void {
+  roll() {
     for(let i = 0; i < 3; i++) {
       for(let j = 0; j < 5; j++) {
-        //let randSymbol = new SymbolComponent();
         this.matrix[i][j] = new SymbolComponent();
       }
     }
     this.infoSide.betMoney();
-    this.infoSide.addMoney(this.paylineFunction());
+    this.infoSide.win = this.paylineFunction();
   }
-
-  getSymbolSrc() {
-    for(let i = 0; i < 3; i++) {
-      for(let j = 0; j < 5; j++) {
-        let src = this.matrix[i][j];
-        console.log(src);
-      }
-    }
-  }
-
-   payline1(n: number) {
-     if(n > 2) {
-       return this.infoSide.income;
-     }
-     if(this.matrix[0][n].id === this.matrix[0][n + 1].id &&
-        this.matrix[0][n + 1].id === this.matrix[0][n + 2].id) {
-          this.infoSide.income += this.matrix[0][0].currency;  
-          console.log(this.infoSide.income);
-          return this.payline1(n + 1);
-     }
-   }
 
    stockReels() {
       this.reel1 = [this.matrix[0][0],this.matrix[1][0],this.matrix[2][0]];
@@ -78,26 +71,48 @@ export class MachineComponentComponent implements OnInit {
 
    paylineFunction(): number {
      this.stockReels();
-     let linii = 0;
      for (let pos of this.posiblePaylines.posPL) {
       let newPL: SymbolComponent[];
       newPL = [this.reel1[pos[0]],this.reel2[pos[1]],this.reel3[pos[2]],
       this.reel4[pos[3]],this.reel5[pos[4]]];
         if(newPL[0].id === newPL[1].id && newPL[1].id === newPL[2].id) {
-          this.infoSide.income += newPL[0].currency;
-          linii++;
+          this.infoSide.income += (newPL[0].currency * this.infoSide.bet);
           console.log(newPL);
           if(newPL[2] === newPL[3]) {
-            this.infoSide.income += newPL[0].currency;
-            linii++;
+            this.infoSide.income += (newPL[0].currency * this.infoSide.bet);
             if(newPL[3] === newPL[4]) {
-              this.infoSide.income += newPL[0].currency;
-              linii++
+              this.infoSide.income += (newPL[0].currency * this.infoSide.bet);
             }
           }
         }
       }
-      console.log(`numarul de linii este: ${linii}`);
      return this.infoSide.income;
+   }
+
+   gambleRed() {
+    let randButton: number = Math.floor(Math.random() * 2) + 1;
+    if(this.gambleButtons.redButton === randButton){
+      this.infoSide.win *= 2;
+    }else{
+      this.infoSide.win = 0;
+      this.infoSide.addMoney(0);
+    }
+    this.gambleButtons.gamblingRow.push(randButton === 1 ? 'ROSU' : 'NEGRU');
+    console.log(randButton);
+  }
+  gambleBlack() {
+    let randButton: number = Math.floor(Math.random() * 2) + 1;
+    if(this.gambleButtons.blackButton === randButton){
+      this.infoSide.win *= 2;
+    }else{
+      this.infoSide.win = 0;
+      this.infoSide.addMoney(0);
+    }
+    this.gambleButtons.gamblingRow.push(randButton === 2 ? 'NEGRU' : 'ROSU');
+    console.log(randButton);
+   }
+
+   takeMoney() {
+       this.infoSide.addMoney(this.infoSide.win);
    }
 }

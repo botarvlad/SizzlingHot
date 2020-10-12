@@ -6,13 +6,15 @@ import { MachineComponentComponent } from './machine-component/machine-component
 import { SymbolComponent } from './symbol/symbol.component';
 import { BalanceComponent } from './balance/balance.component';
 import { FormsModule } from '@angular/forms';
+import { GambleWindowComponent } from './gamble-window/gamble-window.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MachineComponentComponent,
     SymbolComponent,
-    BalanceComponent
+    BalanceComponent,
+    GambleWindowComponent
   ],
   imports: [
     BrowserModule,
